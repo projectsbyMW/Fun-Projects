@@ -1,0 +1,44 @@
+import React, { useState } from 'react';
+import './progressbar.css'; // Assuming the CSS styles are saved here
+
+const ProgressBar = () => {
+  // State to manage the current active step
+  const [currentStep, setCurrentStep] = useState(0);
+
+  // Array to hold step details
+  const steps = [
+    { label: 'KYC Submitted'},
+    { label: 'KYC Status Updated'},
+    { label: 'Review Submitted'},
+    { label: 'Review Updated'},
+    { label: 'Policy Status Updated'},
+  ];
+
+  // Function to handle clicking on a step
+  const nextStep = (index) => {
+    setCurrentStep(index);
+  };
+
+  return (
+    <div className="main">
+      <ul>
+        {steps.map((step, index) => (
+          <li key={index}>
+            {/* Step number and checkmark */}
+            <div
+              className={`step ${index === 0 ? 'first' : ''} ${index <= currentStep ? 'active' : ''}`}
+              onClick={() => nextStep(index)}
+            >
+              <p>{index + 1}</p>
+              <i className="awesome fa-solid fa-check"></i>
+            </div>
+            {/* Label */}
+            <p className="label">{step.label}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default ProgressBar;
