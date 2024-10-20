@@ -114,6 +114,21 @@ function App() {
                         <p>No notifications available</p>
                     )}
                 </ul>
+            </div>
+            <div className="documents">
+                <h3>Documents</h3>
+                <ul>
+                    {documents.length > 0 ? (
+                        documents.map((document, index) => (
+                            <li key={index}>
+                                <p>{document.documentType}</p>
+                                <h5>Status:{document.status}</h5>
+                                <a href={document.documentUrl}>Link</a>
+                            </li>
+                        ))
+                    ) : (
+                        <p>No documents available</p>
+                    )}
                 </ul>
             </div>
         </div>
