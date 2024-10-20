@@ -491,3 +491,26 @@ header {
     text-decoration: underline;
     color: #0056b3;
   }
+
+.Link {
+    color: #e63946; /* Red for the link text */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+    background-color: #000; /* Black background */
+    padding: 8px 12px; /* Add some padding for a button-like feel */
+    border-radius: 4px; /* Rounded corners for modern look */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.Link:hover {
+    background-color: #e63946; /* Red background on hover */
+    color: #fff; /* White text on hover for contrast */
+}
+
+.Link:active {
+    background-color: #c53039; /* Darker red for active state */
+}
+
+.Link:visited {
+    color: #e63946; /* Keep the same red color for visited links */
+}
