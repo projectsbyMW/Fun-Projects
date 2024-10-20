@@ -115,7 +115,7 @@ function App() {
                     )}
                 </ul>
             </div>
-            <div className="documents">
+            <div className="notifications">
                 <h3>Documents</h3>
                 <ul>
                     {documents.length > 0 ? (
