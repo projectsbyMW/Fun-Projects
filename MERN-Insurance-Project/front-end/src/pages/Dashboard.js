@@ -116,22 +116,6 @@ function App() {
                 </ul>
                 </ul>
             </div>
-            <div className="notifications">
-                <h3>Documents</h3>
-                <ul>
-                    {documents.length > 0 ? (
-                        documents.map((document, index) => (
-                            <li key={index}>
-                                <p>{document.documentType}</p>
-                                <h5>Status:{document.status}</h5>
-                                <a href={document.documentUrl}>Link</a>
-                            </li>
-                        ))
-                    ) : (
-                        <p>No documents available. Please upload them to proceed to the next steps</p>
-                    )}
-                </ul>
-            </div>
         </div>
     );
 }
