@@ -87,7 +87,7 @@ export default function App() {
         <form onSubmit={onSubmit}>
             <h1>Additional Documents Upload</h1>
                 <div className="form-group">
-                    <h3>Please upload your ID and Address proof for identity verification.</h3>
+                    <h3>Please upload any additional documents required for identity verification after KYC approval.</h3>
                     <label htmlFor="documentType" >Document Type: </label>
                     <br />
                     <select id = "documentType" value={documentType} required 
