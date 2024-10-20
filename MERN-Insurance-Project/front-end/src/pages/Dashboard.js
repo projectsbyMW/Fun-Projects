@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 function App() {
     const [currentStep, setCurrentStep] = useState(0);
     const [notifications, setNotifications] = useState([]); // Hold notifications
+    const [documents, setDocuments] = useState([]); // Hold notifications
     const user = localStorage.getItem("token");
     const userId = localStorage.getItem("userId");
     const navigate = useNavigate();
@@ -47,8 +48,19 @@ function App() {
             }
         };
 
+        const fetchDocuments = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/employees/${userId}`);
+                console.log(response.data.documents);
+                setDocuments(response.data.documents); // Set notifications from API
+            } catch (error) {
+                console.error('Error fetching documents:', error);
+            }
+        };
+
         fetchSteps();
         fetchNotifications();
+        fetchDocuments();
     }, [userId]);
 
     // Handle step click
@@ -100,6 +112,23 @@ function App() {
                         ))
                     ) : (
                         <p>No notifications available</p>
+                    )}
+                </ul>
+                </ul>
+            </div>
+            <div className="notifications">
+                <h3>Documents</h3>
+                <ul>
+                    {documents.length > 0 ? (
+                        documents.map((document, index) => (
+                            <li key={index}>
+                                <p>{document.documentType}</p>
+                                <h5>Status:{document.status}</h5>
+                                <a href={document.documentUrl}>Link</a>
+                            </li>
+                        ))
+                    ) : (
+                        <p>No documents available. Please upload them to proceed to the next steps</p>
                     )}
                 </ul>
             </div>
