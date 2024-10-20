@@ -123,7 +123,7 @@ function App() {
                             <li key={index}>
                                 <p>{document.documentType}</p>
                                 <h5>Status:{document.status}</h5>
-                                <a href={document.documentUrl}>Link</a>
+                                <a href={document.documentUrl} className='Link'>Link</a>
                             </li>
                         ))
                     ) : (
