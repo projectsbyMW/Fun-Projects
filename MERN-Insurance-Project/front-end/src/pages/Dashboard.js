@@ -50,7 +50,7 @@ function App() {
 
         const fetchDocuments = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/employees/${userId}`);
+                const response = await axios.get(`https://fun-projects.onrender.com/employees/${userId}`);
                 console.log(response.data.documents);
                 setDocuments(response.data.documents); // Set notifications from API
             } catch (error) {
