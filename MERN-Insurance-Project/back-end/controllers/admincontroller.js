@@ -177,7 +177,6 @@ const getEmployeesById = async (req, res) => {
         createdAt: new Date()
       });
       await employee.save();
-        }
     
       res.status(200).json({ message: 'Policy status updated successfully', policyStatus });
     } catch (error) {
