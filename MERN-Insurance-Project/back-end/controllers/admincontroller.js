@@ -169,7 +169,7 @@ const getEmployeesById = async (req, res) => {
 
       const emailSubject = `Policy Status Update`;
       const emailBody = `Hello ${employee.name},\n\nYour policy has recently been "${policyStatus}". Please visit our website if you have any queries.\nKeep Saving. \n\n -InsuPort`;
-      //await sendEmail(employee.email, emailSubject, emailBody); 
+      await sendEmail(employee.email, emailSubject, emailBody); 
 
       employee.notifications.push({
         message: `Your Policy is now ${policyStatus}.`,
@@ -177,6 +177,7 @@ const getEmployeesById = async (req, res) => {
         createdAt: new Date()
       });
       await employee.save();
+        }
     
       res.status(200).json({ message: 'Policy status updated successfully', policyStatus });
     } catch (error) {
